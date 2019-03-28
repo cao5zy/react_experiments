@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EditBox from './EditBox';
 import * as _ from 'underscore';
 import logo from './logo.svg';
 import './App.css';
@@ -16,7 +17,8 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
 	    {_.map(hello(), n => n * 2) }
-          </p>
+        </p>
+	    <EditBox/>
           <a
             className="App-link"
             href="https://reactjs.org"
