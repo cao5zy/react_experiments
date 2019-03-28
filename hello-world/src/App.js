@@ -17,13 +17,8 @@ class App extends Component {
 
     handleChange(event) {
 	this.setState((preState) => {
-	    let newval = function() {
-		let val = {};
-		val[event.field] = event.value;
-		return val;
-	    };
-	    let newObj = _.extend(preState.obj, newval());
-	    return _.extend(preState, {obj: newObj});
+	    preState.obj[event.field] = event.value;
+	    return preState;
 	});
     }
     render() {

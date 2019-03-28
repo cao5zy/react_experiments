@@ -13,9 +13,7 @@ class EditBoxWithObjBinding extends Component {
 
     handleChange(event) {
 	this.setState({value: event.target.value})
-	const updateProp = this.props.updateProp;
-	
-	updateProp({obj:this.props.obj, field: this.props.field, value: event.target.value});
+	this.props.updateProp({obj:this.props.obj, field: this.props.field, value: event.target.value});
     }
     render() {
 	const val = this.state.value;
