@@ -7,11 +7,29 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+    constructor(props) {
+	super(props);
+	this.handleChange = this.handleChange.bind(this);
+	this.state = {obj: {
+	    name: 'alanx'
+	}};
+    }
+
+    handleChange(event) {
+	this.setState((preState) => {
+	    let newval = function() {
+		let val = {};
+		val[event.field] = event.value;
+		return val;
+	    };
+	    let newObj = _.extend(preState.obj, newval());
+	    return _.extend(preState, {obj: newObj});
+	});
+    }
     render() {
     const hello = function() {
 	return [1, 2, 3];
     };
-	let obj = {name: 'alan'};
 	
     return (
       <div className="App">
@@ -23,7 +41,8 @@ class App extends Component {
         </p>
 	    <EditBox/>
 	    <EditBoxWithInput value="hello from input"/>
-	    <EditBoxWithObjBinding obj={obj} field='name'/>
+	    <EditBoxWithObjBinding obj={this.state.obj} field='name' updateProp={this.handleChange}/>
+	    <label>{this.state.obj.name}</label>
           <a
             className="App-link"
             href="https://reactjs.org"
