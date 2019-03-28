@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import EditBox from './EditBox';
+import EditBoxWithInput from './EditBoxWithInput';
+import EditBoxWithObjBinding from './EditBoxWithObjBinding';
 import * as _ from 'underscore';
 import logo from './logo.svg';
 import './App.css';
@@ -9,6 +11,7 @@ class App extends Component {
     const hello = function() {
 	return [1, 2, 3];
     };
+	let obj = {name: 'alan'};
 	
     return (
       <div className="App">
@@ -19,6 +22,8 @@ class App extends Component {
 	    {_.map(hello(), n => n * 2) }
         </p>
 	    <EditBox/>
+	    <EditBoxWithInput value="hello from input"/>
+	    <EditBoxWithObjBinding obj={obj} field='name'/>
           <a
             className="App-link"
             href="https://reactjs.org"
