@@ -57,9 +57,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (state)=>{
-
+  console.log('mapStateToProps state', state);
   return {
-    alert: state.alert || "default alert"
+    alert: state.reducer1.alert || "default alert"
   }
 };
 
