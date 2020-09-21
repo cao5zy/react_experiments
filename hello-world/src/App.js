@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import EditBox from './EditBox';
 import EditBoxWithInput from './EditBoxWithInput';
 import EditBoxWithObjBinding from './EditBoxWithObjBinding';
@@ -15,7 +16,9 @@ class App extends Component {
 	}};
     }
 
-    handleChange(event) {
+  handleChange(event) {
+    const { showAlert } = this.props;
+    showAlert();
 	this.setState((preState) => {
 	    preState.obj[event.field] = event.value;
 	    return preState;
@@ -25,7 +28,8 @@ class App extends Component {
     const hello = function() {
 	return [1, 2, 3];
     };
-	
+
+      console.log('props', this.props.alert);
     return (
       <div className="App">
         <header className="App-header">
@@ -52,4 +56,18 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state)=>{
+
+  return {
+    alert: state.alert || "default alert"
+  }
+};
+
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    showAlert: ()=>{
+      dispatch({type:"showMsg", data:{name:"alan"}});
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
