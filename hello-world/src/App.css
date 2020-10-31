@@ -31,3 +31,16 @@
     transform: rotate(360deg);
   }
 }
+
+#grid1-container {
+    width:90%;
+    border: solid 1px green;
+}
+
+.layout {
+    border: solid 1px blue;
+}
+
+.item{
+    border: solid 1px black;
+}
