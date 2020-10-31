@@ -6,9 +6,10 @@ import EditBoxWithObjBinding from './EditBoxWithObjBinding';
 import * as _ from 'underscore';
 import logo from './logo.svg';
 import './App.css';
-import GridLayout from 'react-grid-layout';
+import { Responsive, WidthProvider } from 'react-grid-layout';
 import "./styles.css";
 
+const ResponsiveGridLayout = WidthProvider(Responsive);
 
 
 class MyFirstGrid extends React.Component {
@@ -20,11 +21,13 @@ class MyFirstGrid extends React.Component {
       {i: 'c', x: 4, y: 0, w: 1, h: 2}
     ];
     return (
-      <GridLayout className="layout" layout={layout} cols={12} rowHeight={30} width={1200}>
+        <ResponsiveGridLayout className="layout" layout={layout}
+      cols={{lg:12,md:10,sm:6,xs:4,xxs:2}}
+      rowHeight={30}>
         <div key="a" className="item">a</div>
         <div key="b" className="item">b</div>
         <div key="c" className="item">c</div>
-      </GridLayout>
+      </ResponsiveGridLayout>
     )
   }
 }
