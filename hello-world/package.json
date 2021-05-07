@@ -9,7 +9,7 @@
     "react-scripts": "2.1.8",
     "redux": "^4.0.5",
     "rxjs": "^6.4.0",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   },
   "scripts": {
     "start": "PORT=9004 react-scripts start",
